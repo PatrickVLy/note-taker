@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const mainDir = path.join(__dirname, "/public");
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
@@ -70,6 +70,6 @@ app.delete("/api/notes/:id", function(req, res) {
     res.json(savedNotes);
 })
 
-app.listen(port, function() {
-    console.log(`application listening on port ${port}`);
+app.listen(port, ()=>{
+    console.log(`listening on port ${port}`);
 })
