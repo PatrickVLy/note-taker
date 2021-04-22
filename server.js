@@ -15,10 +15,6 @@ app.get("/notes", function(req, res) {
     res.sendFile(path.join(mainDir, "notes.html"));
 });
 
-app.get("*", function(req, res) {
-    res.sendFile(path.join(mainDir, "index.html"));
-});
-
 app.get("/api/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "/db/db.json"));
 });
@@ -28,33 +24,45 @@ app.get("/api/notes/:id", function(req, res) {
     res.json(savedNotes[Number(req.params.id)]);
 });
 
+app.get("*", function(req, res) {
+    res.sendFile(path.join(mainDir, "index.html"));
+});
+
 app.post("/api/notes", function(req, res) {
-    let newNote = req.body;
-    
     let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    
-    let noteID = (savedNotes.length).toString();
-    newNote.id = noteID;
+    let newNote = req.body;
+    let uniqueID = (savedNotes.length).toString();
+    newNote.id = uniqueID;
     savedNotes.push(newNote);
 
     fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
-    console.log(`Note saved...Content: , ${newNote}`);
+    console.log("Note saved to db.json. Content: ", newNote);
+    res.json(savedNotes);
+})
+
+app.post("/api/notes", function(req, res) {
+    let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    let newNote = req.body;
+    let uniqueID = (savedNotes.length).toString();
+    newNote.id = uniqueID;
+    savedNotes.push(newNote);
+
+    fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
+    console.log("Note saved to db.json. Content: ", newNote);
     res.json(savedNotes);
 })
 
 app.delete("/api/notes/:id", function(req, res) {
-    let newID = 0;
-    let noteID = req.params.id;
     let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    
-    
-    console.log(`Deleted note # ${noteID}`);
-    savedNotes = savedNotes.filter(currentNote => {
-        return currentNote.id != noteID;
+    let noteID = req.params.id;
+    let newID = 0;
+    console.log(`Deleting note with ID ${noteID}`);
+    savedNotes = savedNotes.filter(currNote => {
+        return currNote.id != noteID;
     })
     
-    for (currentNote of savedNotes) {
-        currentNote.id = newID.toString();
+    for (currNote of savedNotes) {
+        currNote.id = newID.toString();
         newID++;
     }
 
