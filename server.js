@@ -42,6 +42,25 @@ app.post("/api/notes", function(req, res) {
     res.json(savedNotes);
 })
 
+app.delete("/api/notes/:id", function(req, res) {
+    let newID = 0;
+    let noteID = req.params.id;
+    let savedNotes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    
+    
+    console.log(`Deleted note # ${noteID}`);
+    savedNotes = savedNotes.filter(currentNote => {
+        return currentNote.id != noteID;
+    })
+    
+    for (currentNote of savedNotes) {
+        currentNote.id = newID.toString();
+        newID++;
+    }
+
+    fs.writeFileSync("./db/db.json", JSON.stringify(savedNotes));
+    res.json(savedNotes);
+})
 
 app.listen(port, function() {
     console.log(`application listening on port ${port}`);
