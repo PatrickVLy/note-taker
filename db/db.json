@@ -1,6 +1,1 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
+[{"title":"build better portfolio","text":"I need to go back and design a better portfolio page","id":"0"},{"title":"Fix project with spotify API","text":"go back and learn how to use OATH with spotify's API","id":"1"},{"title":"Read the ExpressJS Docs","text":"get better acquainted with express js\n\nhttps://expressjs.com/","id":"2"}]
