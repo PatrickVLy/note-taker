@@ -41,3 +41,8 @@ app.post("/api/notes", function(req, res) {
     console.log(`Note saved...Content: , ${newNote}`);
     res.json(savedNotes);
 })
+
+
+app.listen(port, function() {
+    console.log(`application listening on port ${port}`);
+})
