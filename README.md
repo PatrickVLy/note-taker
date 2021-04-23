@@ -10,6 +10,7 @@
 5. [License](#license)
 6. [Screenshot](#screenshot)
 7. [Questions](#questions)
+8. [Technology Used](#technology)
     
 <a name="descriptipn"></a>
 ## Description
@@ -17,7 +18,10 @@ This is an application that will take the Title and Content of a note and save i
     
 <a name="installation"></a>
 ## Installation
-1. clone my repository.<br>2. 2. make sure you have all the dependencies needed, for this project I used expressjs, so do a ```npm install express```
+1. clone my repository.<br>
+2. make sure you have all the dependencies needed, for this project I used expressjs, so do a ```npm install express```
+3. run the server by typing in ```node server.js``` into the command line.
+4. on your browser go to http://localhost:3000/ and the app should run!
     
 <a name="usage"></a>
 ## Usage
@@ -33,8 +37,17 @@ My project is open source so feel free to make it your own!
 
 <a name="screenshot"></a>
 ## Screenshot
-![Screenshot](/photo.png)
+![Screenshot](photo.png)
     
 <a name="questions"></a>
 ## Questions
 Feel free to check out my [GitHub](https://github.com/pattymcpat) repository. Also feel free to send me an email at <Patrickly72@gmail.com> if you have any questions
+
+<a name="technology"></a>
+## Technology Used
+1. HTML
+2. CSS
+3. Bootstrap
+4. Javascript
+5. NodeJS
+6. ExpressJS
