@@ -11,6 +11,7 @@
 6. [Screenshot](#screenshot)
 7. [Questions](#questions)
 8. [Technology Used](#technology)
+9. [Links](#links)
     
 <a name="descriptipn"></a>
 ## Description
@@ -51,3 +52,10 @@ Feel free to check out my [GitHub](https://github.com/pattymcpat) repository. Al
 4. Javascript
 5. NodeJS
 6. ExpressJS
+
+<a name="links"></a>
+## Links
+1. [Deployed Application](https://patricks-note-taker.herokuapp.com/)
+2. [GitHub](https://github.com/pattymcpat)
+3. [Project Repository](https://github.com/pattymcpat/note-taker)
+4. [LinkedIN](https://www.linkedin.com/in/patrick-ly-aa280717a/)
